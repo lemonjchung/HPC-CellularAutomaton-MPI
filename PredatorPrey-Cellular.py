@@ -1,3 +1,19 @@
+####          High Performance Computing Project - Cellular Automaton
+#1. Purpose
+# Before running Parallel Programming, find a cellular automaton model and run with a single process.
+
+#2. The model  
+# http://iopscience.iop.org/article/10.1088/1751-8113/40/5/002/meta
+# Title : The threshold of coexistence and critical behaviour of a predator–prey cellular automaton
+#
+# We assume that each individual of each species population can reside on the sites of a regular
+# square lattice which represents their habitat. A site in the lattice can be in one of three states:
+# occupied by a prey individual (X); occupied by a predator individual (Y) or empty (Z). The
+# predator–prey probabilistic cellular automaton comprehends the following processes:
+#    Z + X → 2X, (1)
+#    X + Y → 2Y, (2)
+#    Y → Z. (3)
+
 from collections import namedtuple
 import random
 import sys
@@ -24,23 +40,9 @@ def showpredatorprey(nx,ny,t):
     printf('\x1b[2J\x1b[H')
     time.sleep(1)
 
-# Initialize font and background color
-def showpredatorprey_persist(nx,ny,t):
-    for i in range(ny):
-        for j in range(nx):
-            if tnew[i][j].STATE == '@':
-                printf('\033[41m'"%c "'\033[0m',tnew[i][j].STATE)
-            elif tnew[i][j].STATE == '~':
-                printf('\033[33m'"%c "'\033[0m',tnew[i][j].STATE)
-            elif tnew[i][j].STATE == ' ':
-                printf('\033[47m'"%c "'\033[0m',tnew[i][j].STATE)
-            else:
-                printf('\033[0m'"%c "'\033[0m',tnew[i][j].STATE)
-        printf("\n")
-
 # Initialize Grid and Generation
-NX = 80
-NY = 80
+NX = 40
+NY = 40
 generations = 100
 
 # X: Prey, Y: Predator, Z: Empty
